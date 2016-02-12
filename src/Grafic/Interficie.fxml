@@ -24,6 +24,10 @@
 		function gestorBotoActionJS(event) {
 		
 		}
+                function gestorBotoDActionJS(event) {
+		
+		}
+              
 	</fx:script>
    <top>
       <VBox prefHeight="77.0" prefWidth="600.0" BorderPane.alignment="CENTER">
@@ -57,7 +61,7 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextArea>
-                  <Button id ="D" mnemonicParsing="false" prefHeight="41.0" prefWidth="61.0" text="Desar">
+                  <Button id ="D"  onAction="#gestorBotoDAction" mnemonicParsing="false" prefHeight="41.0" prefWidth="61.0" text="Desar">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>

@@ -25,7 +25,6 @@ public class Principal extends Application {
             stage.setTitle("Piano");
             stage.setScene(new Scene(arrel, 1000, 500));
             stage.show();
-            
         } catch (IOException ex) {
             ex.printStackTrace();
         }

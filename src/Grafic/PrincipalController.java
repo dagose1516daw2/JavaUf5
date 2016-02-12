@@ -30,10 +30,9 @@ public class PrincipalController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
            
 		try {
-                    
-		
-                       
-//                        Grabar gnota= new Grabar();
+//                     teclat nouTeclat= new teclat();
+//                    nouTeclat.nouTeclat();
+                   
                         Tocar();
                     }
 	catch (Exception e) {
@@ -50,11 +49,9 @@ public class PrincipalController implements Initializable {
 //    @FXML private Text textMissatge;
     
     @FXML protected void gestorBotoAction(ActionEvent event) throws InterruptedException, MidiUnavailableException{
-            int channel = 9; // 0 is a piano, 9 is percussion, other channels are for other instruments
+            int channel = 0; // 0 is a piano, 9 is percussion, other channels are for other instruments
             int volume = 80; // between 0 et 127
             int duration = 200; // in milliseconds
-        
-        
         
             Lleguir Lnota= new Lleguir();
             Lnota.setNom("C1");
@@ -70,19 +67,28 @@ public class PrincipalController implements Initializable {
           }
         
     }
-
-    private void Tocar() {
-//        
-//        Scanner scan = new Scanner(System.in);
-//        String answer = scan.next.String();
-//        System.out.println(answer); 
-//        
-//     
+@FXML protected void gestorBotoDAction(ActionEvent event){
     
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+    private void Tocar() {
+        teclat nouTeclat= new teclat();
+        nouTeclat.nouTeclat();
+        Scanner scan = new Scanner(System.in);
         
+        String lletra = scan.next();
+        System.out.println(nouTeclat.newmap.get(lletra));
+
+  
     }
 }
