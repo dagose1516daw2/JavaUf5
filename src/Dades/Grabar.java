@@ -1,4 +1,5 @@
-package Grafic;
+package Dades;
+
 
 
 import java.io.File;

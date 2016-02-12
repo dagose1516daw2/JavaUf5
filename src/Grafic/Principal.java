@@ -6,12 +6,16 @@
 package Grafic;
 
 
+import Teclat.KeyboardExample;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.event.EventType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javax.swing.JFrame;
 
 public class Principal extends Application {
 
@@ -20,15 +24,22 @@ public class Principal extends Application {
     public void start(Stage stage) throws IOException {
 
         try {
-            
-           Parent  arrel = FXMLLoader.load(getClass().getResource("Interficie.fxml"));
+            JFrame frame = new JFrame("Captura lletra");
+           KeyboardExample key = new KeyboardExample();
+           frame.add(key);
+           frame.setSize(1000, 500);
+           frame.setVisible(true);
+           frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            Parent  arrel = FXMLLoader.load(getClass().getResource("Interficie.fxml"));
             stage.setTitle("Piano");
-            stage.setScene(new Scene(arrel, 1000, 500));
+            stage.setScene(new Scene(arrel, 1000, 500));               
             stage.show();
+         
         } catch (IOException ex) {
             ex.printStackTrace();
         }
         
+    
         
         
     }

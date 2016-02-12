@@ -1,7 +1,8 @@
-package Grafic;
+package Dades;
 
 import java.io.File;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -75,6 +76,8 @@ public class Lleguir {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+         
+                System.out.println("Error no hi ha cap cançó a reproduir");
             
         }
           
