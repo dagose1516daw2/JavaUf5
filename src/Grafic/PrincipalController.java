@@ -6,6 +6,7 @@
 package Grafic;
 
 
+import Dades.Grabar;
 import Teclat.KeyboardExample;
 import Teclat.Keypres;
 import Teclat.teclat;
@@ -13,10 +14,13 @@ import Dades.Lleguir;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 import com.sun.swing.internal.plaf.synth.resources.synth;
 import java.awt.Button;
+import java.awt.List;
 import java.awt.RenderingHints.Key;
 import java.awt.event.KeyListener;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import javafx.fxml.Initializable;
@@ -29,11 +33,14 @@ import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Synthesizer;
+import javax.swing.JFrame;
 
 
 public class PrincipalController implements Initializable{
+    ArrayList<String> notesG = new ArrayList<String>();
+//    private String[] notesG;
+//    private int nNotes=0;
     
-        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
            
@@ -47,6 +54,14 @@ public class PrincipalController implements Initializable{
                  }
         
     }
+
+//    public ArrayList<String> getNotesG() {
+//        return notesG;
+//    }
+
+//    public void setNotesG(ArrayList<String> notesG) {
+//        this.notesG = notesG;
+//    }
         
         
       
@@ -74,15 +89,37 @@ public class PrincipalController implements Initializable{
           }
         
     }
+    
+
+    @FXML protected void gestorBotoTAction(ActionEvent event){
+    JFrame frame = new JFrame("Captura lletra");
+           KeyboardExample key = new KeyboardExample();
+           frame.add(key);
+           frame.setSize(1000, 500);
+           frame.setVisible(true);
+           frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+}
+
 @FXML protected void gestorBotoDAction(ActionEvent event){
+    System.out.println("Desant....");
+
+            System.out.println(notesG);
+            Grabar Gnota= new Grabar();
+            Gnota.setNom("C1");    
+//            Gnota.GrabarNota(notesG);
+    
+    
     
 
 }
-    public void Tocar(int n) throws MidiUnavailableException, InterruptedException {
-        
-        
-        System.out.println(n);      
-         int channel = 0; // 0 is a piano, 9 is percussion, other channels are for other instruments
+
+
+        @SuppressWarnings("empty-statement")
+    public ArrayList Tocar(int n) throws MidiUnavailableException, InterruptedException {
+     
+        System.out.println("integer "+n);      
+         int channel = 0; // 0 is a piano
             int volume = 80; // between 0 et 127
             int duration = 200; // in milliseconds
                
@@ -94,10 +131,13 @@ public class PrincipalController implements Initializable{
             channels[channel].noteOn((int)n, volume ); 
             Thread.sleep(duration);  
         
-        
-        
-        
-        
+         ////////////Aqui estalerror!!!!//////////////////
+            String x= Integer.toString(n);
+            notesG.add(x);
+            System.out.println("String "+x);
+               System.out.println(notesG);
+           
+          return notesG;
    
               }
 

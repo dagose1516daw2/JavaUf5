@@ -3,6 +3,7 @@ package Dades;
 
 
 import java.io.File;
+import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -79,5 +80,9 @@ public class Grabar {
             tfe.printStackTrace();
         }
 
+    }
+
+    public void GrabarNota(ArrayList<String> notes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

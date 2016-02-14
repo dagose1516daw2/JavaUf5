@@ -24,12 +24,12 @@ public class Principal extends Application {
     public void start(Stage stage) throws IOException {
 
         try {
-            JFrame frame = new JFrame("Captura lletra");
-           KeyboardExample key = new KeyboardExample();
-           frame.add(key);
-           frame.setSize(1000, 500);
-           frame.setVisible(true);
-           frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            JFrame frame = new JFrame("Captura lletra");
+//           KeyboardExample key = new KeyboardExample();
+//           frame.add(key);
+//           frame.setSize(1000, 500);
+//           frame.setVisible(true);
+//           frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             Parent  arrel = FXMLLoader.load(getClass().getResource("Interficie.fxml"));
             stage.setTitle("Piano");
             stage.setScene(new Scene(arrel, 1000, 500));               

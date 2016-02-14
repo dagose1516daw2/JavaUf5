@@ -11,6 +11,9 @@ package Teclat;
 import Grafic.PrincipalController;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.midi.MidiUnavailableException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -48,7 +51,13 @@ public class KeyboardExample extends JPanel {
                     PrincipalController Pc= new PrincipalController();
                     
                     
-                    Pc.Tocar(nota);
+                    try {
+                        Pc.Tocar(nota);
+                    } catch (MidiUnavailableException ex) {
+                        Logger.getLogger(KeyboardExample.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(KeyboardExample.class.getName()).log(Level.SEVERE, null, ex);
+                    }
               
 		}
 
