@@ -21,7 +21,7 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="Grafic.PrincipalController">
     
-         <fx:script>
+<!--         <fx:script>
 		function gestorBotoActionJS(event) {
 		
 		}
@@ -29,7 +29,7 @@
 		
 		}
               
-	</fx:script>
+	</fx:script>-->
    <top>
       <VBox prefHeight="77.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>

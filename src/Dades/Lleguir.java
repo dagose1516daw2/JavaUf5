@@ -46,19 +46,22 @@ public class Lleguir {
             try {
         
             File Llnotes = new File("Partitures.xml");
+            
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(Llnotes);
             doc.getDocumentElement().normalize();
 
             System.out.println("arrel " + doc.getDocumentElement().getNodeName());
+            
             NodeList nodes = doc.getElementsByTagName(nom);
             System.out.println("==========================");
                 System.out.println(nodes.getLength());
                 
             for (int i = 0; i < nodes.getLength(); i++) {
                 Node node = nodes.item(i);
-                 
+                 System.out.println("iner");
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                      
                     Element element = (Element) node;
@@ -68,7 +71,9 @@ public class Lleguir {
                                        
                   for (int x = 0; x < nNotes; x++) {                      
                         int not = Integer.parseInt(obtenirContingut("nota", element,x));
-                   Anotes.add(not); 
+                        System.out.println("anotes"+Anotes);
+                   Anotes.add(not);
+                   
                              }
                    
                  

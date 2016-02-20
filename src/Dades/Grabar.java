@@ -1,9 +1,8 @@
 package Dades;
 
-
-
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -19,27 +18,29 @@ import org.w3c.dom.Element;
  * Classe que crea i escriu un document XML mitjançant JAXP i API DOM
  *
  */
-public class Grabar {
+public class Grabar
+    {
+//    private ArrayList Nota= new ArrayList();
 
+//    public void setNota(ArrayList Nota) {
+//        this.Nota = Nota;
+//    }
     private String nom;
-    
 
-    public String getNom() {
-        return nom;
-    }
+    public String getNom() {return nom;}
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+    public void setNom(String nom) {this.nom = nom;}
 
-  
-    public Grabar() {
-    }
+    public Grabar() {}
+   
+   
 
-    public void GrabarNota(String Nota[]) {
-
-        try {
-               
+    public void GrabarNota(ArrayList Nota) 
+        {
+          
+        try 
+            {  
+          System.out.println("GN"+Nota);
             DocumentBuilderFactory Partitura = DocumentBuilderFactory.newInstance();
             DocumentBuilder CreaDoc = Partitura.newDocumentBuilder();
 
@@ -50,19 +51,16 @@ public class Grabar {
             Element Nom = nodeDocument.createElement(nom);
             elementArrel.appendChild(Nom);
             Nom.setAttribute("id", "1");//posar contandor
-
-               
-            for(int i=0;Nota.length>i;i++){
-        
-                            
-            Element nota = nodeDocument.createElement("nota");
-            Nom.appendChild(nota);
-            nota.appendChild(nodeDocument.createTextNode(Nota[i]));
-     
-            }
+            for(int i=0;Nota.size()>i;i++)
+                {
+                Element nota = nodeDocument.createElement("nota");
+                Nom.appendChild(nota);
+                nota.appendChild(nodeDocument.createTextNode((String)Nota.get(i)));
+                
+                }
             
-            ////////////guardem nombre total de   notes/////////////////
-            String nNota =  Integer.toString(Nota.length);
+            ////////////guardem nombre total de notes/////////////////
+            String nNota =  Integer.toString(Nota.size());
             Element nnotes = nodeDocument.createElement("numeroNotes");
             Nom.appendChild(nnotes);
             nnotes.appendChild(nodeDocument.createTextNode(nNota));
@@ -72,17 +70,15 @@ public class Grabar {
             StreamResult sortidaXML = new StreamResult(new File("Partitures.xml"));
             System.out.println("Afeguida!");
             transformer.transform(origen, sortidaXML);
-      
-
-        } catch (ParserConfigurationException pce) {
+            } 
+        
+        catch (ParserConfigurationException pce) {
             pce.printStackTrace();
-        } catch (TransformerException tfe) {
+            System.out.println("Error gaurdar canço");
+        } 
+        catch (TransformerException tfe) {
             tfe.printStackTrace();
+          System.out.println("Error gaurdar canço");}
         }
 
-    }
-
-    public void GrabarNota(ArrayList<String> notes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
