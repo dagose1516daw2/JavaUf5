@@ -85,7 +85,7 @@ public class PrincipalController implements Initializable
  
         KeyboardExample key = new KeyboardExample();
         frame.add(key);
-        frame.setSize(500, 500);
+        frame.setSize(200, 200);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
