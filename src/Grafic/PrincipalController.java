@@ -1,47 +1,50 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Grafic;
 
-import Dades.Grabar;
-import Teclat.KeyboardExample;
-import Teclat.Keypres;
-import Teclat.teclat;
-import Dades.Lleguir;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
-import com.sun.swing.internal.plaf.synth.resources.synth;
-import java.awt.Button;
-import java.awt.List;
-import java.awt.RenderingHints.Key;
-import java.awt.event.KeyListener;
-import java.lang.reflect.Array;
+import Dades.piano;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.ResourceBundle;
-import java.util.Scanner;
-import java.util.Set;
-import javafx.fxml.Initializable;
-import javafx.event.ActionEvent;
+import Dades.Lleguir;
 import javafx.fxml.FXML;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.text.Text;
-import javax.sound.midi.Instrument;
-import javax.sound.midi.MidiChannel;
-import javax.sound.midi.MidiSystem;
-import javax.sound.midi.MidiUnavailableException;
-import javax.sound.midi.Synthesizer;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.io.IOException;
+import java.util.ArrayList;
+import exeption.ErrorLLegir;
+import Teclat.KeyboardExample;
+import org.xml.sax.SAXException;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
+import javax.sound.midi.Instrument;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.MidiChannel;
+import javax.sound.midi.Synthesizer;
+import javax.sound.midi.MidiUnavailableException;
+import javax.xml.parsers.ParserConfigurationException;
+
+/*
+import java.util.Set;
+import java.awt.List;
+import Teclat.teclat;
+import Teclat.Keypres;
+import java.awt.Button;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+import javafx.scene.text.Text;
+import java.lang.reflect.Array;
+import java.awt.event.KeyListener;
+import java.awt.RenderingHints.Key;
+import javafx.scene.input.KeyEvent;
+import java.util.concurrent.TimeUnit;
+import static sun.management.Agent.error;
 import javax.xml.transform.TransformerException;
+import com.sun.swing.internal.plaf.synth.resources.synth;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
+*/
 
 public class PrincipalController implements Initializable
     {
     public ArrayList notesG = new ArrayList();
-    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) 
@@ -50,33 +53,32 @@ public class PrincipalController implements Initializable
 	catch (Exception e) {e.printStackTrace();}
         }
     
-
     public void setNotesG(ArrayList notesG) {this.notesG = notesG;}
       
-//    @FXML private Button D;
-//    @FXML private Button R;
+    //@FXML private Button D;
+    //@FXML private Button R;
+    //@FXML private Text textMissatge;
     
-//    @FXML private Text textMissatge;
-    
-    @FXML protected void gestorBotoAction(ActionEvent event) throws InterruptedException, MidiUnavailableException
+    @FXML protected void gestorBotoAction(ActionEvent event) throws InterruptedException, MidiUnavailableException, ErrorLLegir, ParserConfigurationException, SAXException, IOException
         {
-            int channel = 0; // 0 is a piano, 9 is percussion, other channels are for other instruments
-            int volume = 80; // between 0 et 127
-            int duration = 500; // in milliseconds
+        piano piano1 = new piano();
+        Lleguir Lnota = new Lleguir();
         
-            Lleguir Lnota= new Lleguir();
-            Lnota.setNom("C1");
-            ArrayList reproduir = Lnota.LleguirNota();                
-            System.out.println(reproduir.size());     
-            Synthesizer synth = MidiSystem.getSynthesizer();
-            synth.open();
-            MidiChannel[] channels = synth.getChannels();
-            Instrument[] instr = synth.getDefaultSoundbank().getInstruments();
-            for(int x=0;reproduir.size()>x;x++){
-                   channels[channel].noteOn((int) reproduir.get(x), volume ); 
-                   Thread.sleep(duration);  
-          }
-     
+        Lnota.setNom("C1");
+        ArrayList reproduir = Lnota.LleguirNota();
+        
+        System.out.println(reproduir.size());
+        
+        Synthesizer synth = MidiSystem.getSynthesizer();
+        synth.open();
+        MidiChannel[] channels = synth.getChannels();
+        Instrument[] instr = synth.getDefaultSoundbank().getInstruments();
+        
+        for(int x=0 ; reproduir.size()>x ; x++)
+            {
+            channels[piano1.getChannelpiano()].noteOn((int) reproduir.get(x), piano1.getVolumepiano()); 
+            Thread.sleep(piano1.getDurationpiano());  
+            }
         }
     
     @FXML protected void gestorBotoTAction(ActionEvent event)
@@ -84,33 +86,34 @@ public class PrincipalController implements Initializable
         JFrame frame = new JFrame("Captura lletra");
  
         KeyboardExample key = new KeyboardExample();
+        
+        frame.setSize(275, 150);
         frame.add(key);
-        frame.setSize(200, 200);
+        
+        JLabel X = new JLabel();
+        X.setText("    CLIQUÏ AQUÏ I JA POTS COMENÇAR!");
+        
+        frame.add(X);
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
-
-    @FXML protected void gestorBotoDAction(ActionEvent event) throws TransformerException
+    
+    @FXML protected void gestorBotoCloseAction(ActionEvent event) throws InterruptedException
         {
-          
-
+        JFrame frame = new JFrame("T");
+        frame.setSize(200, 200);
+        frame.setVisible(false);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
 
     public void Tocar(int n) throws MidiUnavailableException, InterruptedException 
         {
-        System.out.println("integer "+n);      
-
-        int channel = 0; // 0 is a piano
-        int volume = 80; // between 0 et 127
-        int duration = 200; // in milliseconds
-
+        piano piano1 = new piano();
         Synthesizer synth = MidiSystem.getSynthesizer();
         synth.open();
         MidiChannel[] channels = synth.getChannels();
         Instrument[] instr = synth.getDefaultSoundbank().getInstruments();
 
-        channels[channel].noteOn((int)n, volume ); 
-        Thread.sleep(duration);  
+        channels[piano1.getChannelpiano()].noteOn((int)n, piano1.getVolumepiano()); 
+        Thread.sleep(piano1.getDurationpiano());  
         }
-
-}
+    }

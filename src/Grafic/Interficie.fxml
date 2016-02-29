@@ -21,15 +21,7 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="Grafic.PrincipalController">
     
-<!--         <fx:script>
-		function gestorBotoActionJS(event) {
-		
-		}
-                function gestorBotoDActionJS(event) {
-		
-		}
-              
-	</fx:script>-->
+
    <top>
       <VBox prefHeight="77.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -37,7 +29,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem onAction="#gestorBotoCloseAction" mnemonicParsing="false" text="Close" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
@@ -62,14 +54,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button id ="D"  onAction="#gestorBotoDAction" mnemonicParsing="false" prefHeight="41.0" prefWidth="61.0" text="Desar">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
+
                   <Button id="R" onAction="#gestorBotoAction" mnemonicParsing="false" prefHeight="41.0" prefWidth="87.0" text="Reproduir">
                      <cursor>
                         <Cursor fx:constant="HAND" />
