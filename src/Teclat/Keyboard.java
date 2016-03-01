@@ -18,9 +18,9 @@ import java.awt.event.KeyListener;
 import Grafic.PrincipalController;
 import javax.sound.midi.MidiUnavailableException;
 
-public class KeyboardExample extends JPanel 
+public class Keyboard extends JPanel 
     {
-    public KeyboardExample()
+    public Keyboard()
         {
         KeyListener listener = new MyKeyListener();
         addKeyListener(listener);
@@ -62,9 +62,9 @@ public class KeyboardExample extends JPanel
                 Pc.Tocar(nota);
                 }
             
-            catch (MidiUnavailableException ex) {Logger.getLogger(KeyboardExample.class.getName()).log(Level.SEVERE, null, ex);}
+            catch (MidiUnavailableException ex) {Logger.getLogger(Keyboard.class.getName()).log(Level.SEVERE, null, ex);}
             
-            catch (InterruptedException ex) {Logger.getLogger(KeyboardExample.class.getName()).log(Level.SEVERE, null, ex);}
+            catch (InterruptedException ex) {Logger.getLogger(Keyboard.class.getName()).log(Level.SEVERE, null, ex);}
             }
 
         @Override

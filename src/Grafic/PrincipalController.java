@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import java.io.IOException;
 import java.util.ArrayList;
 import exeption.ErrorLLegir;
-import Teclat.KeyboardExample;
+import Teclat.Keyboard;
 import org.xml.sax.SAXException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -85,7 +85,7 @@ public class PrincipalController implements Initializable
         {
         JFrame frame = new JFrame("Captura lletra");
  
-        KeyboardExample key = new KeyboardExample();
+        Keyboard key = new Keyboard();
         
         frame.setSize(275, 150);
         frame.add(key);
