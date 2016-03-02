@@ -1,6 +1,10 @@
 package Dades;
 
-public abstract class Instrument 
+/**
+ * @author Daniel Gonzalez, Alfred Ferrer.
+ * @use Instancia els valors de la nota: Canal de nota, duració de la nota, volum de la nota. Atenció: no el número de nota.
+ */
+public abstract class Instrument
     {
     private int channelpiano = 0; 
     private int volumepiano = 80; 

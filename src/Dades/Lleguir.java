@@ -1,6 +1,7 @@
 package Dades;
 
 //import javax.swing.JOptionPane;
+
 import java.io.File;
 import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
@@ -11,7 +12,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
-/* Classe que crea i escriu un document XML mitjançant JAXP i API DOM
+/**
+ * @author Daniel Gonzalez, Alfred Ferrer.
+ * @use Clase que gestiona les dades del programa: Numero de nota, duració de la nota, volum de la nota.
+ * @use Classe que crea i escriu un document XML mitjançant JAXP i API DOM.
  */
 public class Lleguir 
     {
@@ -26,6 +30,9 @@ public class Lleguir
   
     public  Lleguir() {}
     
+    /**
+     * @return this.notes.
+     */
     public ArrayList LleguirNota() 
         {
         ArrayList Anotes = new ArrayList();

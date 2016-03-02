@@ -2,6 +2,10 @@ package Teclat;
 
 import java.util.HashMap;
 
+/**
+ * @author Daniel Gonzalez, Alfred Ferrer.
+ * @use Canvia el valor de la tecla per el valor de la nota.
+ */
 public class teclat 
     {
     HashMap newmap = new HashMap();

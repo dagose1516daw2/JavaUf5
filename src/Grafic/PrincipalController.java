@@ -1,26 +1,5 @@
 package Grafic;
 
-import Dades.piano;
-import java.net.URL;
-import Dades.Lleguir;
-import javafx.fxml.FXML;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import java.io.IOException;
-import java.util.ArrayList;
-import exeption.ErrorLLegir;
-import Teclat.Keyboard;
-import org.xml.sax.SAXException;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.Initializable;
-import javax.sound.midi.Instrument;
-import javax.sound.midi.MidiSystem;
-import javax.sound.midi.MidiChannel;
-import javax.sound.midi.Synthesizer;
-import javax.sound.midi.MidiUnavailableException;
-import javax.xml.parsers.ParserConfigurationException;
-
 /*
 import java.util.Set;
 import java.awt.List;
@@ -42,6 +21,31 @@ import com.sun.swing.internal.plaf.synth.resources.synth;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 */
 
+import Dades.piano;
+import java.net.URL;
+import Dades.Lleguir;
+import Teclat.Keyboard;
+import javafx.fxml.FXML;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.io.IOException;
+import java.util.ArrayList;
+import exeption.ErrorLLegir;
+import org.xml.sax.SAXException;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
+import javax.sound.midi.Instrument;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.MidiChannel;
+import javax.sound.midi.Synthesizer;
+import javax.sound.midi.MidiUnavailableException;
+import javax.xml.parsers.ParserConfigurationException;
+
+/**
+ * @author Daniel Gonzalez, Alfred Ferrer.
+ * @use Obre la interfície gràfica, permet la grabació i reproducció.
+ */
 public class PrincipalController implements Initializable
     {
     public ArrayList notesG = new ArrayList();

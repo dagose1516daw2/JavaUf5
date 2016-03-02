@@ -3,6 +3,10 @@ package Teclat;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * @author Daniel Gonzalez, Alfred Ferrer.
+ * @use Printa la tecla premuda.
+ */
 public class Keypres implements KeyListener 
     {
     @Override

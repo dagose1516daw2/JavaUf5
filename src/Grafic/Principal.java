@@ -14,6 +14,11 @@ import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import javafx.application.Application;
 
+/**
+ * @author Daniel Gonzalez, Alfred Ferrer.
+ * @use Iniciar el programa --> Crida a la classe PrincipalController.
+ */
+
 public class Principal extends Application 
     {
     @Override

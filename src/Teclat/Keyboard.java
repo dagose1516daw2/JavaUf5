@@ -18,6 +18,10 @@ import java.awt.event.KeyListener;
 import Grafic.PrincipalController;
 import javax.sound.midi.MidiUnavailableException;
 
+/**
+ * @author Daniel Gonzalez, Alfred Ferrer.
+ * @use Capturar l'event que es genera al premer una tecla i regirtrar-la.
+ */
 public class Keyboard extends JPanel 
     {
     public Keyboard()
@@ -29,8 +33,11 @@ public class Keyboard extends JPanel
 	
     public class MyKeyListener implements KeyListener 
         {
-        private ArrayList notesG= new ArrayList();
+        private ArrayList notesG = new ArrayList();
 
+        /**
+         * @return notesG.
+         */
         public ArrayList getNotesG() {return  notesG;}
 	
         @Override
@@ -45,7 +52,7 @@ public class Keyboard extends JPanel
             tecla.nouTeclat(); //Carregar el nou teclat.
             lletra = KeyEvent.getKeyText(e.getKeyCode()); //Recuperar el valor nou del teclat.
             lletraG = (String) tecla.newmap.get(lletra);
-            Grabar Gnota= new Grabar();
+            Grabar Gnota = new Grabar();
             
             notesG.add(lletraG);
             System.out.println("1" + notesG);
